@@ -6,7 +6,6 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = function() {
-  //write your code here
   let who = ["The dog", "My grandma", "His turtle", "My bird"];
   let action = ["ate", "peed", "crushed", "broke"];
   let what = ["my homework", "the keys", "the car"];
@@ -18,19 +17,21 @@ window.onload = function() {
     "while I was praying"
   ];
 
-  const whoIndex = Math.floor(Math.random() * who.length);
-  const actionIndex = Math.floor(Math.random() * action.length);
-  const whatIndex = Math.floor(Math.random() * what.length);
-  const whenIndex = Math.floor(Math.random() * when.length);
+  const randomArray = arr => {
+    return arr[Math.floor(Math.random() * arr.length)];
+  };
 
-  const excuse =
-    who[whoIndex] +
-    " " +
-    action[actionIndex] +
-    " " +
-    what[whatIndex] +
-    " " +
-    when[whenIndex];
+  const generator = () => {
+    const excuse =
+      randomArray(who) +
+      " " +
+      randomArray(action) +
+      " " +
+      randomArray(what) +
+      " " +
+      randomArray(when);
 
-  document.getElementById("excuse").innerHTML = excuse;
+    document.getElementById("excuse").innerHTML = excuse;
+  };
+  generator();
 };
